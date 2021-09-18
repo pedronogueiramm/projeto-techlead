@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techlead.bookmanager.dto.UserDTO;
 import com.techlead.bookmanager.service.LoginService;
 
 @RestController
@@ -16,9 +17,9 @@ public class LoginController {
 	private LoginService service;
 	
 	@GetMapping
-	public ResponseEntity<Long> fakeAuth(String email, String password){
-		Long idUser = service.fakeAuth(email,password);
+	public ResponseEntity<UserDTO> fakeAuth(String email, String password){
+		UserDTO user = service.findByEmailAndPassword(email,password);
 		
-		return ResponseEntity.ok(idUser);
+		return ResponseEntity.ok(user);
 	}
 }
