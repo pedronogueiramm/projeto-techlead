@@ -12,19 +12,20 @@ const CreateUserForm = () => {
 
     //testando request sem os inputs do form
     const newUser = {
-        name: "name",
-        email: "email",
-        password: "password",
+        name: name,
+        email: email,
+        password: password,
         role: 2
     }
 
     const url = 'http://localhost:8080';
-    const requestData = () => {
+    const requestData = (evt: any) => {
+        evt.preventDefault();
         axios.post(`${url}/users/add`, newUser).then((response) => {
             console.log(response.data);
         });
     }
-    useEffect(requestData,[]);
+    //useEffect(requestData, []);
 
 
     return (
@@ -42,9 +43,11 @@ const CreateUserForm = () => {
                         <input type="password" className="form-control" placeholder="senha" onChange={event => setPassword(event.target.value)} required />
                     </div>
                     <div className="form-group py-3">
-                        <Link to="/">
-                            <button type="submit" className="btn btn-warning btn-block">Cadastrar</button>
-                        </Link>
+                        
+                            <div className="form-group py-3">
+                                <button type="submit" className="btn btn-warning btn-block" >Entrar</button>
+                            </div>
+                        
 
                     </div>
 
