@@ -51,7 +51,7 @@ const DataTable = () => {
                                 <td>{x.name}</td>
                                 <td>{x.user.name}</td>
                                 <td>{formatLocalDate(x.releaseDate, "dd/MM/yyyy")}</td>
-                                <td>editar excluir</td>
+                                <td>ver editar excluir</td>
                             </tr>
                         ))}
 
