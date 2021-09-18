@@ -1,4 +1,4 @@
-package com.techlead.bookmanager.security;
+package com.techlead.bookmanager.config;
 
 import java.util.Arrays;
 
