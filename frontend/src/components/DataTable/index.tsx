@@ -3,7 +3,7 @@ import Pagination from 'Pagination';
 import React, { useEffect, useState } from 'react';
 import { BookPage } from 'types/types';
 import { formatLocalDate } from 'utils/format';
-import { REACT_APP_BACKEND_URL } from 'utils/requests';
+import { BASE_URL } from 'utils/requests';
 
 const DataTable = () => {
 
@@ -18,7 +18,7 @@ const DataTable = () => {
 
 
     const requestData = () => {
-        axios.get(`${REACT_APP_BACKEND_URL}/books?page=${pageActive}&size=10&sort=releaseDate,desc`).then((response) => {
+        axios.get(`${BASE_URL}/books?page=${pageActive}&size=10&sort=releaseDate,desc`).then((response) => {
             setPage(response.data);
 
 
