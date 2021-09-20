@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { Book, User } from "types/types";
+import { BASE_URL } from "utils/requests";
 
 const EditBookForm = () => {
  
@@ -41,7 +42,7 @@ const EditBookForm = () => {
 
     const url = 'http://localhost:8080';
     const editBook = () => {
-        axios.put(`${url}/books/update`, 
+        axios.put(`${BASE_URL}/books/update`, 
         {
             id: book.id,
             name: newName,

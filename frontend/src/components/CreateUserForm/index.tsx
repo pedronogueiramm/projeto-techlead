@@ -21,7 +21,7 @@ const CreateUserForm = () => {
     const url = 'http://localhost:8080';
     const requestData = (evt: any) => {
         evt.preventDefault();
-        axios.post(`${url}/users/add`, newUser).then((response) => {
+        axios.post(`${BASE_URL}/users/add`, newUser).then((response) => {
             redirectToLogin();
         });
 

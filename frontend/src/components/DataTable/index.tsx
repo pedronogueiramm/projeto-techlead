@@ -28,7 +28,7 @@ const DataTable = () => {
     }
 
     const requestData = () => {
-        axios.get(`${url}/books?page=${pageActive}&size=10&sort=releaseDate,desc`).then((response) => {
+        axios.get(`${BASE_URL}/books?page=${pageActive}&size=10&sort=releaseDate,desc`).then((response) => {
             setPage(response.data);
         });
     }
@@ -42,7 +42,7 @@ const DataTable = () => {
     const url = 'http://localhost:8080';
 
     const deleteBook = (id: number) => {
-        axios.delete(`${url}/books/delete/${id}`)
+        axios.delete(`${BASE_URL}/books/delete/${id}`)
             .then(() => setStatus({ status: 'Delete successful' }));;
     }
 
