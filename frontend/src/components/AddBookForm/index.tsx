@@ -28,7 +28,6 @@ const AddBookForm = () => {
         user: user
     }
 
-    const url = 'http://localhost:8080';
     const requestData = (evt: any) => {
         evt.preventDefault();
         axios.post(`${BASE_URL}/books/add`, newBook).then((response) => {

@@ -39,7 +39,6 @@ const DataTable = () => {
         setPageActive(index);
     }
 
-    const url = 'http://localhost:8080';
 
     const deleteBook = (id: number) => {
         axios.delete(`${BASE_URL}/books/delete/${id}`)

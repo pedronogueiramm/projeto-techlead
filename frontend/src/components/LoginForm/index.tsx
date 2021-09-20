@@ -20,7 +20,6 @@ const LoginForm = () => {
         password: ''
     })
 
-    const url = 'http://localhost:8080';
     const requestData = (evt: any) => {
         evt.preventDefault();
         axios.get(`${BASE_URL}/login`, {

@@ -18,7 +18,6 @@ const CreateUserForm = () => {
         role: 2
     }
 
-    const url = 'http://localhost:8080';
     const requestData = (evt: any) => {
         evt.preventDefault();
         axios.post(`${BASE_URL}/users/add`, newUser).then((response) => {

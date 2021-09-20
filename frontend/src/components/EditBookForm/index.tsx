@@ -40,7 +40,6 @@ const EditBookForm = () => {
         history.push(path);
     }
 
-    const url = 'http://localhost:8080';
     const editBook = () => {
         axios.put(`${BASE_URL}/books/update`, 
         {
