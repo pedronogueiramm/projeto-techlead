@@ -1,8 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { User } from "types/types";
 import { BASE_URL } from "utils/requests";
+
+
 
 const LoginForm = () => {
 
@@ -28,13 +30,20 @@ const LoginForm = () => {
             }
         }).then((response) => {
             setUser(response.data);
-            console.log(response.data);
+
         });
     }
-    //useEffect(() => {}, [email,password]);
 
     if (user.id) {
-        return <Redirect to="/home" />
+        window.sessionStorage.setItem("user_id", String(user.id));
+        window.sessionStorage.setItem("user_name", String(user.name));
+        window.sessionStorage.setItem("user_email", String(user.email));
+        window.sessionStorage.setItem("user_password", String(user.password));
+        window.sessionStorage.setItem("user_role", String(user.role));
+        return <Redirect push to={{
+            pathname: '/home',
+            state: user
+        }} />
     } else {
 
         return (
@@ -42,7 +51,7 @@ const LoginForm = () => {
                 <form onSubmit={requestData}>
                     <h2 className="text-center">Entrar</h2>
                     <div className="form-group py-3">
-                        <input type="text" className="form-control" placeholder="seu@email.com" onChange={event => setEmail(event.target.value)} required />
+                        <input type="email" className="form-control" placeholder="seu@email.com" onChange={event => setEmail(event.target.value)} required />
                     </div>
                     <div className="form-group py-3">
                         <input type="password" className="form-control" placeholder="senha" onChange={event => setPassword(event.target.value)} required />
@@ -52,6 +61,7 @@ const LoginForm = () => {
                     </div>
 
                 </form>
+                
                 <Link to="/create-user">
                     <p className="text-center"><button className="btn btn-warning">Criar nova conta</button></p>
                 </Link>

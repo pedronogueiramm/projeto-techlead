@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router";
 import { BASE_URL } from "utils/requests";
 
 const CreateUserForm = () => {
@@ -22,10 +22,16 @@ const CreateUserForm = () => {
     const requestData = (evt: any) => {
         evt.preventDefault();
         axios.post(`${url}/users/add`, newUser).then((response) => {
-            console.log(response.data);
+            redirectToLogin();
         });
+
     }
-    //useEffect(requestData, []);
+
+    const history = useHistory();
+    const redirectToLogin = () => {
+        let path = `/`;
+        history.push(path);
+    }
 
 
     return (
@@ -37,17 +43,17 @@ const CreateUserForm = () => {
                         <input type="text" className="form-control" placeholder="Seu Nome" onChange={event => setName(event.target.value)} required />
                     </div>
                     <div className="form-group py-3">
-                        <input type="text" className="form-control" placeholder="seu@email.com" onChange={event => setEmail(event.target.value)} required />
+                        <input type="email" className="form-control" placeholder="seu@email.com" onChange={event => setEmail(event.target.value)} required />
                     </div>
                     <div className="form-group py-3">
                         <input type="password" className="form-control" placeholder="senha" onChange={event => setPassword(event.target.value)} required />
                     </div>
                     <div className="form-group py-3">
-                        
-                            <div className="form-group py-3">
-                                <button type="submit" className="btn btn-warning btn-block" >Entrar</button>
-                            </div>
-                        
+
+                        <div className="form-group py-3">
+                            <button type="submit" className="btn btn-warning btn-block" >Cadastrar</button>
+                        </div>
+
 
                     </div>
 
@@ -57,6 +63,7 @@ const CreateUserForm = () => {
 
         </div>
     );
+
 }
 
 export default CreateUserForm;

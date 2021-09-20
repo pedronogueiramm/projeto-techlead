@@ -2,6 +2,7 @@ INSERT INTO tb_users(name,email,password,role) VALUES ('Vinicius Silva','viniciu
 INSERT INTO tb_users(name,email,password,role) VALUES ('Pedro','pedro@email.com','123',2);
 INSERT INTO tb_users(name,email,password,role) VALUES ('Carlos Magno','magno@email.com','123',2);
 INSERT INTO tb_users(name,email,password,role) VALUES ('Maria Clara','maria@email.com','123',2);
+INSERT INTO tb_users(name,email,password,role) VALUES ('Admin','admin@email.com','admin',1);
 
 INSERT INTO tb_books(user_id,name,detail,release_date,active) VALUES (1,'livro de teste1','sinopse do livro1','2021-04-13',true);
 INSERT INTO tb_books(user_id,name,detail,release_date,active) VALUES (2,'livro de teste2','sinopse do livro2','2021-10-24',true);
